@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Product } from './models/product.model';
+import { ProductsService } from './services/products.service';
+import { StoreService } from './services/store.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,31 +10,25 @@ import { Product } from './models/product.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  myCard: Product[] = []
+  totalCash: number = 0
   infoPadre = 'store';
-  products: Product[] = [
-    
-  {
-    id: 'ss',
-    name:  'galaxy',
-    image: 'https://www.muycomputer.com/wp-content/uploads/2016/07/portada.jpg',
-    price: 10
-  },
-  {
-    id: 'ss',
-    name:  'raqueta ',
-    image: 'https://as01.epimg.net/tenis/imagenes/2020/07/15/mas_tenis/1594797888_068664_1594798451_noticia_normal_recorte1.jpg',
-    price: 100
-  },
-  {
-    id: 'ss',
-    name:  'galaxy',
-    image: 'https://www.muycomputer.com/wp-content/uploads/2016/07/portada.jpg',
-    price: 10
+  products: Product[] = [] 
+  constructor(
+    private storeService: StoreService,
+    private productService: ProductsService,
+    ){
+    this.myCard = this.storeService.getShopppingCar()
   }
-
-  ] 
+  ngOnInit(){}
 
   onloaded(img:string){
     console.log("llego la info", img)
+  }
+
+  addTocar(product: Product){
+    
+    this.storeService.addProduct(product)
+    this.totalCash = this.storeService.getTotalCash()
   }
 }

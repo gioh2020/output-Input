@@ -1,2 +1,7 @@
 <app-nav></app-nav>
-<app-product [product]="product" *ngFor="let product of products"></app-product>
+<span>cantidad de protuctos {{myCard.length}}</span>
+<span>preciototal {{totalCash}}</span>
+<app-product 
+[product]="product" 
+*ngFor="let product of products"
+(addedProduct)="addTocar($event)"></app-product>

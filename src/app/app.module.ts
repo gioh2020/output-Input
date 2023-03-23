@@ -7,6 +7,7 @@ import { ImgComponent } from './conponents/img/img.component';
 import { ProductComponent } from './conponents/product/product.component';
 import { HeaderComponent } from './conponents/header/header.component';
 import { NavComponent } from './conponents/nav/nav.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavComponent } from './conponents/nav/nav.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
