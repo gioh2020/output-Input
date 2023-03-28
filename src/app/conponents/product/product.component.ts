@@ -13,9 +13,16 @@ export class ProductComponent {
 
   @Input() product: Product = {
     id: '',
+    title: '',
     price: 0,
-    name:  '',
     image: '',
+    description: '',
+    category: ''
+  }
+  ngOnInit(){
+    console.log(
+      this.product
+    )
   }
   @Output() addedProduct = new EventEmitter<Product>()
 

@@ -20,7 +20,17 @@ export class AppComponent {
     ){
     this.myCard = this.storeService.getShopppingCar()
   }
-  ngOnInit(){}
+
+  productos: Product[] = []
+  
+  ngOnInit(){
+    this.productService.getAllProducts()
+    .subscribe(data => { 
+      this.productos = data
+      console.log(this.productos)
+    })
+  
+  }
 
   onloaded(img:string){
     console.log("llego la info", img)
