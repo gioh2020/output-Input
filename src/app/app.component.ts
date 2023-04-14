@@ -22,23 +22,33 @@ export class AppComponent {
   }
 
   productos: Product[] = []
+  producDetailShow: boolean = false
+
+  today = new Date()
+  date = new Date(2021, 1, 21)
   
   ngOnInit(){
     this.productService.getAllProducts()
     .subscribe(data => { 
       this.productos = data
-      console.log(this.productos)
     })
   
-  }
-
-  onloaded(img:string){
-    console.log("llego la info", img)
   }
 
   addTocar(product: Product){
     
     this.storeService.addProduct(product)
     this.totalCash = this.storeService.getTotalCash()
+  }
+
+  toggleProductDetailShow = () =>{
+    this.producDetailShow = !this.producDetailShow
+  }
+  dato:any
+  async getId(id: string){
+    await this.productService.getDetailProduct(id).subscribe(data =>{ this.dato = data})
+     this.producDetailShow = !this.producDetailShow
+     console.log(this.dato.images)
+    
   }
 }

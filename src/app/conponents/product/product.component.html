@@ -1,6 +1,7 @@
 <div class="productDiv">
     <<h1>{{product.title}}</h1>>
-    <app-img [img]="product.image"></app-img>
-    <h2>{{product.price}} dolars</h2>
+    <app-img  [img]="product.images[0]"></app-img>
+    <h2>{{product.price | currency: 'USD'}} </h2>
+    <button (click)="showDetail()">datail</button>
     <button (click)="addTocard()">add carrito</button>
 </div>

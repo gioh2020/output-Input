@@ -1,10 +1,22 @@
 <app-nav></app-nav>
+<p> {{today | date}}</p>
+<p> {{today | date:'long'}}</p>
+
 <span>cantidad de protuctos {{myCard.length}}</span>
-<span>preciototal {{totalCash}}</span>
+<br>
+<span>preciototal {{totalCash | currency: 'USD'}}</span>
+<button (click)="toggleProductDetailShow()">open</button>
 <div class="productsContainer">
     <app-product 
     [product]="product" 
     *ngFor="let product of productos"
-    (addedProduct)="addTocar($event)"></app-product>
+    (addedProduct)="addTocar($event)"
+    (showDetailProduct)="getId($event)"></app-product>
+    
 
+</div>
+
+<div class="product-detail" [class.active]="producDetailShow">
+    <button (click)="toggleProductDetailShow()">close</button>
+    <img *ngIf="dato.images" [src]="dato.images[0]" alt="">
 </div>

@@ -12,7 +12,6 @@ export class ImgComponent {
     this.img ='https://www.muycomputer.com/wp-content/uploads/2016/07/portada.jpg' //maneja el evento error (error)
   }
   imgLoaded() {
-    console.log("hijo")
     this.loaded.emit( this.img)
   }
 

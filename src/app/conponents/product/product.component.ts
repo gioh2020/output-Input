@@ -15,21 +15,24 @@ export class ProductComponent {
     id: '',
     title: '',
     price: 0,
-    image: '',
+    images: [],
     description: '',
-    category: ''
+    category: {
+      id: 'string',
+    name: 'string',
+    }
   }
   ngOnInit(){
-    console.log(
-      this.product
-    )
+
   }
   @Output() addedProduct = new EventEmitter<Product>()
+  @Output() showDetailProduct = new EventEmitter<string>()
 
-  addTocard(){
-    
+  addTocard(){ 
     this.addedProduct.emit(this.product)
-
+  }
+  showDetail(){
+    this.showDetailProduct.emit(this.product.id)
   }
 
 }

@@ -1,3 +1,20 @@
 .productsContainer{
 display: flex;
 flex-wrap: wrap;}
+.product-detail {
+    position: fixed;
+    top: 0;
+    left: 65%;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: all ease-out 0.5s;
+    transform: translateX(100%);
+  }
+  
+  .product-detail.active {
+    transform: translateX(0);
+  }
